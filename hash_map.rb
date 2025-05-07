@@ -148,6 +148,20 @@ class HashMap
     return values
   end
 
+  def entries
+    entries = []
+
+    @buckets.each do |bucket|
+      next if bucket.nil?
+
+      bucket.each do |pair|
+        entries << pair
+      end
+    end
+
+    return entries
+  end
+
   def to_s
     result = []
     @buckets.each_with_index do |bucket, i|
