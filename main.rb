@@ -20,6 +20,7 @@ test.set('lion', 'golden')
 test.set('apple', 'green')
 
 puts test
+puts test.keys.inspect
 puts test.get('grape')
 puts test.has?('banana')
 puts test.has?('dinosaur')

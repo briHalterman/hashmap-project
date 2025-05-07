@@ -120,6 +120,20 @@ class HashMap
     @size = 0
   end
 
+  def keys
+    keys = []
+
+    @buckets.each do |bucket|
+      next if bucket.nil?
+
+      bucket.each do |pair|
+        keys << pair[0]
+      end
+    end
+
+    return keys
+  end
+
   def to_s
     result = []
     @buckets.each_with_index do |bucket, i|
