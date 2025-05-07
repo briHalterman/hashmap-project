@@ -70,4 +70,13 @@ class HashMap
     # Return nil if key not found
     nil
   end
+
+  def to_s
+    result = []
+    @buckets.each_with_index do |bucket, i|
+      next if bucket.nil? || bucket.empty?
+      result << "Bucket #{i}: #{bucket.inspect}"
+    end
+    result.join("\n")
+  end
 end
