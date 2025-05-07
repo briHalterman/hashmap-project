@@ -89,6 +89,28 @@ class HashMap
     return false
   end
 
+  def remove(key)
+    hash_code = hash(key)
+    index = hash_code % @capacity
+    raise IndexError if index.negative? || index >= @buckets.length
+
+    bucket = @buckets[index]
+    if bucket.nil?
+      return nil
+    end
+
+    bucket.each_with_index do |pair, i|
+      if pair[0] == key
+        removed_value = pair[1]
+        bucket.delete_at(i)
+        @size -= 1
+        return removed_value
+      end
+    end
+
+    return nil
+  end
+
   def to_s
     result = []
     @buckets.each_with_index do |bucket, i|

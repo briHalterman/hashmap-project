@@ -23,3 +23,6 @@ puts test
 puts test.get('grape')
 puts test.has?('banana')
 puts test.has?('dinosaur')
+puts test.remove('carrot')
+puts test.get('carrot')
+puts test.has?('carrot')
