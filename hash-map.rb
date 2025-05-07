@@ -41,4 +41,33 @@ class HashMap
     bucket << [key, value]
     @size += 1
   end
+
+  def get(key)
+    # Hash the key
+    hash_code = hash(key)
+    # Calculate the index
+    index = hash_code % @capacity
+
+    # Raise an error if the index is out of bounds
+    raise IndexError if index.negative? || index >= @buckets.length
+
+    # Get the bucket at that index
+    bucket = @buckets[index]
+
+    # Return nil if the bucket is empty
+    if bucket.nil?
+      return nil
+    end
+
+    # Loop through the bucket to find the key
+    bucket.each do |pair|
+      # Return value if found
+      if pair[0] == key
+        return pair[1]
+      end
+
+    end
+    # Return nil if key not found
+    nil
+  end
 end
