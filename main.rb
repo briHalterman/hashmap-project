@@ -21,3 +21,5 @@ test.set('apple', 'green')
 
 puts test
 puts test.get('grape')
+puts test.has?('banana')
+puts test.has?('dinosaur')

@@ -71,6 +71,24 @@ class HashMap
     nil
   end
 
+  def has?(key)
+    hash_code = hash(key)
+    index = hash_code % @capacity
+    raise IndexError if index.negative? || index >= @buckets.length
+
+    bucket = @buckets[index]
+    if bucket.nil?
+      return false
+    end
+
+    bucket.each do |pair|
+      if pair[0] == key
+        return true
+      end
+    end
+    return false
+  end
+
   def to_s
     result = []
     @buckets.each_with_index do |bucket, i|
