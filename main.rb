@@ -21,6 +21,7 @@ test.set('apple', 'green')
 
 puts test
 puts test.keys.inspect
+puts test.values.inspect
 puts test.get('grape')
 puts test.has?('banana')
 puts test.has?('dinosaur')

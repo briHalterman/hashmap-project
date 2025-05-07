@@ -134,6 +134,20 @@ class HashMap
     return keys
   end
 
+  def values
+    values = []
+
+    @buckets.each do |bucket|
+      next if bucket.nil?
+
+      bucket.each do |pair|
+        values << pair[1]
+      end
+    end
+
+    return values
+  end
+
   def to_s
     result = []
     @buckets.each_with_index do |bucket, i|
