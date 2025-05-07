@@ -111,6 +111,10 @@ class HashMap
     return nil
   end
 
+  def length
+    @size
+  end
+
   def to_s
     result = []
     @buckets.each_with_index do |bucket, i|
