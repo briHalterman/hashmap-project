@@ -27,3 +27,6 @@ puts test.remove('carrot')
 puts test.get('carrot')
 puts test.has?('carrot')
 puts test.length
+puts test.clear
+puts test.length
+puts test.has?('elephant')

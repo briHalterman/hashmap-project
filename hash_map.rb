@@ -115,6 +115,11 @@ class HashMap
     @size
   end
 
+  def clear
+    @buckets = Array.new(@capacity)
+    @size = 0
+  end
+
   def to_s
     result = []
     @buckets.each_with_index do |bucket, i|
