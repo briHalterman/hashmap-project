@@ -17,19 +17,21 @@ test.set('jacket', 'blue')
 test.set('kite', 'pink')
 test.set('lion', 'golden')
 
-test.set('apple', 'green')
-
+# test.set('apple', 'green')
+test.set('moon', 'silver')
 puts test
-puts test.keys.inspect
-puts test.values.inspect
-puts test.entries.inspect
-puts test.get('grape')
-puts test.has?('banana')
-puts test.has?('dinosaur')
-puts test.remove('carrot')
-puts test.get('carrot')
-puts test.has?('carrot')
-puts test.length
-puts test.clear
-puts test.length
-puts test.has?('elephant')
+# puts test.keys.inspect
+# puts test.values.inspect
+# puts test.entries.inspect
+# puts test.get('grape')
+# puts test.has?('banana')
+# puts test.has?('dinosaur')
+# puts test.remove('carrot')
+# puts test.get('carrot')
+# puts test.has?('carrot')
+# puts test.length
+# puts test.clear
+# puts test.length
+# puts test.has?('elephant')
+
+

@@ -18,18 +18,17 @@ class HashMap
   end
 
   def set(key, value)
-    # Take the key, hash it, and convert it into a valid index for the buckets array
+    if (@size + 1).to_f / @capacity > @load_factor
+      grow
+    end
+
     hash_code = hash(key)
     index = hash_code % @capacity
 
-    # Check that the index is valid
     raise IndexError if index.negative? || index >= @buckets.length
 
-    # Grab bucket at index
-    # If there's nothing there, start it as an empty array
     bucket = @buckets[index] ||= []
 
-    # Check if the key already exists in the bucket
     bucket.each do |pair|
       if pair[0] == key
         pair[1] = value # Overwrite the value
@@ -37,7 +36,6 @@ class HashMap
       end
     end
 
-    # If key was not found, add a new pair
     bucket << [key, value]
     @size += 1
   end
@@ -160,6 +158,21 @@ class HashMap
     end
 
     return entries
+  end
+
+  def grow
+    old_buckets = @buckets
+    @capacity *= 2
+    @buckets = Array.new(@capacity)
+    @size = 0
+
+    old_buckets.each do |bucket|
+      next if bucket.nil?
+
+      bucket.each do |key, value|
+        set(key, value)
+      end
+    end
   end
 
   def to_s
